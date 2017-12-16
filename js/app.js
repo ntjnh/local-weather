@@ -1,14 +1,21 @@
 // ===== Current location: ====== //
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function(position) {
+
+  function success(position) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
     getWeather(lat, lng);
-  });
-}
+  }
 
-function errorFunction() {
-  alert("Cannot get weather for your location.");
+  function error() {
+    $("<h3>").text("Unable to retrieve weather conditions.").appendTo(".container");
+    $("<h4>").text("Please allow location access.").appendTo(".container");
+    $(".container p, .conditions, #cel, #fah").hide();
+  }
+
+  navigator.geolocation.getCurrentPosition(success, error);
+} else if (!navigator.geolocation) {
+  $("<h3>").text("Geolocation is not supported by your browser.").appendTo(".container");
 }
 
 // converter
@@ -36,14 +43,14 @@ function getWeather(latitude, longitude) {
     $(".unit").html("&deg;C");
     $(".conditions").text(weather.weather[0].main);
     $(".desc").text(weather.weather[0].description);
-    
+
     var iconId = weather.weather[0].id;
     getIcon(iconId);
-    
+
     //convert to fahrenheit
     $(".f-temp").text(getFahrenheit(weather.main.temp));
     $(".f-unit").html("&deg;F");
-    
+
     // switch between celsius and fahrenheit
     $("button").click(function() {
       $("#cel").toggle();
@@ -51,7 +58,7 @@ function getWeather(latitude, longitude) {
       $("#fah").toggle();
       $(".c-button").toggle();
     });
-    
+
   });
 }
 
