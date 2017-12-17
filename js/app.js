@@ -42,7 +42,6 @@ function getWeather(latitude, longitude) {
     $(".temp").text(Math.round(weather.main.temp));
     $(".unit").html("&deg;C");
     $(".conditions").text(weather.weather[0].main);
-    $(".desc").text(weather.weather[0].description);
 
     var iconId = weather.weather[0].id;
     getIcon(iconId);
