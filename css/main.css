@@ -21,7 +21,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-.location {
+#location {
   margin-top: 50px;
   font-weight: 100;
   text-transform: uppercase;
@@ -31,14 +31,13 @@ h1 {
   font-size: 72px;
 }
 
-#fah,
-.c-button {
-  display: none;
-}
-
 button {
   margin-top: 5px;
   background-color: transparent;
   color: #000;
   border: 1px solid #000;
+}
+
+.error {
+  color: firebrick;
 }

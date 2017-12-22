@@ -13,24 +13,23 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
   </head>
   <body>
-    <div class="container">
+    <div id="container" class="container">
       <div class="page-header">
         <h1>Weather App</h1>
       </div>
-      <h1 class="location"></h1>
+      <h1 id="location">Loading...</h1>
       <p class="weather-icon">
         <i class="wi"></i>
       </p>
       <h4 class="conditions"></h4>
       <h2 id="cel"><span class="temp"></span> <span class="unit"></span></h2>
-      <h2 id="fah"><span class="f-temp"></span> <span class="f-unit"></span></h2>
-      <p>
-        <button class="f-button">View as &deg;F</button>
-        <button class="c-button">View as &deg;C</button>
+      <h2 id="fah" class="hide"><span class="f-temp"></span> <span class="f-unit">&deg;F</span></h2>
+      <p class="temp-buttons">
+        <button class="f-button hide">View as &deg;F</button>
+        <button class="c-button hide">View as &deg;C</button>
       </p>
     </div>
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
